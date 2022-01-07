@@ -28,31 +28,32 @@ function bubbleSort(array) {
 
   return array;
 }
-let str1 = []
-let str2 = []
 function anagram(a, b) {
+    let str1 = [];
+    let str2 = [];
+    let final1 = "";
+    let final2 = "";
     for (let i = 0; i < a.length; i++) {
         str1.push(a[i]);
     }
 
-    for (let i = 0; i < b.length; i++) {
-        str2.push(b[i]);
+    for (let k = 0; k < b.length; k++) {
+        str2.push(b[k]);
     }
-}
-
-bubbleSort(str1);
-bubbleSort(str2);
-let final1 = "";
-let final2 = "";
-
-function final(str1, str2) {
-    final1 += str1;
-    final2 += str2;
+    if (str1.length !== str2.length) return console.log(false);
+    bubbleSort(str1);
+    bubbleSort(str2);
+    for (let o = 0; o < str1.length; o++) {
+        final1 += str1[o];
+    }
+    for (let p = 0; p < str1.length; p++) {
+        final2 += str2[p];
+    }
     if (final1 === final2) {
-        return console.log(true)
+        console.log(true);
     } else {
-        return false
+        console.log(false);
     }
 }
 
-console.log(anagram("abc", "cba"))
+anagram("abcdefghi", "ihgfedcba")
